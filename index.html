@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="./Assets/style.css">
     <title>SkinTreatmentForm</title>
 </head>
-<body>
+<body style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+background-color:whitesmoke;
+margin-left: 90px;
+font-size: 25px;
+line-height: 2;">
     <form id="form">
-        <H2>Skin Treatment Form</H2>
+        <H2 style="text-align: center;">Skin Treatment Form</H2>
         <label for="fname">First name:</label>
         <input type="text" id="fname" name="fname">
 
@@ -220,14 +224,25 @@
         <label for="signature"></label>
         <input type="text" name="signature" style="font-family: cursive;">
 
-        <div id="minorForm">
+        <div id="minorForm" style="    margin:20px 0px;
+        border: 3px solid blue;
+        line-height: 1;
+        font-size: smaller;
+        padding: 10px;">
             <p>Consent To Treatment of a Minor under 18: By my signature below, I hereby consent to administer facial treatments and related services to my child or dependent as deemed necessary</p> <br>
             <label for="signatureChild"></label>
         <input type="text" name="signatureChild" style="font-family: cursive;">
         </div>
 
 </form>
-<div id="button">Done</div>
+<div id="button" style="text-align: center;
+cursor: pointer;
+border: 2px solid black;
+padding: 4px;
+margin: auto;
+max-width: fit-content;
+border-radius: 10px;
+font-size: 40px;">Done</div>
 </body>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
