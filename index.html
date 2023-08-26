@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <title>SkinTreatmentForm</title>
+</head>
+<body>
+    <form id="form">
+        <H2>Skin Treatment Form</H2>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname">
+
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state">
+
+        <label for="zip">Zip:</label>
+        <input type="text" id="zip" name="zip"><br>
+
+        <label for="mobileNumber">Home/Cell Number:</label>
+        <input type="number" id="mobileNumber" name="mobileNumber"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday"><br>
+
+        <label for="business">How did you hear about me?</label>
+        <input type="text" name="business"><br>
+        <ul for="questions">
+            <li><label for="allergies">Do you have allergies?</label>
+            <select id="allergies" name="allergies">
+                <option value="" disabled selected hidden>select</option>
+                <option value="checkbox">Yes</option>
+                <option value="no">No</option>
+            </select> <br>
+
+            <label for="hasAllergies">If yes, please list allergies</label>
+            <input type="text" name="hasAllergies" id="hasAllergies"><br>
+
+            <li><label for="skinIrritation">Do you ever experience buring, itching or stinging on your skin?</label>
+            <select id="skinIrritation" name="skinIrritation">
+                <option value="" disabled selected hidden>select</option>
+                <option value="checkbox">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+
+            <li><label for="skinReddness">Do you have a tendency for skin reddness</label>
+            <select id="skinReddness" name="skinReddness">
+                <option value="" disabled selected hidden>select</option>
+                <option value="checkbox">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+
+            <li><label for="skinConcerns">Please select if you have any of these skin concerns</label> <br>
+            <input type="checkbox" name="skinConcerns" value="prematureAging"> Premature Aging
+            <input type="checkbox" name="skinConcerns" value="unevenSkinTone"> Uneven Skin Tone
+            <input type="checkbox" name="skinConcerns" value="breakouts"> Breakouts
+            <input type="checkbox" name="skinConcerns" value="oiliness"> Oiliness 
+            <input type="checkbox" name="skinConcerns" value="congestion"> Congestion
+            <input type="checkbox" name="skinConcerns" value="dryness"> Dryness
+            <input type="text" name="skinConcerns" id="skinConcernsOther" placeholder="other"><br>
+
+            <li><label for="specificConverns">What are your specific concerns/challenges with your skin?</label>
+            <input type="text" name="specificConcerns" id="specificConcerns">
+
+            <li><label for="dermatologistVisit">In the last year have you been under the care of a dermatologist or other physician?</label>
+            <select id="dermatologistVisit" name="dermatologistVisit">
+                <option value="" disabled selected hidden>select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+
+            <label for="hasDermatologist">If yes, please specify</label>
+            <input type="text" name="hasDermatologist" id="hasDermatologist"><br>
+
+            <li><label for="medication">Please list any medication, supplements, vitamins, diuretics, diet pills, etc. that you take regularly</label>
+            <input type="text" name="medication" id="medication"><br>
+
+            <li><label for="skinHabbits">Please select if any of the following apply:</label><br>
+            <input type="checkbox" name="skinHabbits" value="smoke">Smoke
+            <input type="checkbox" name="skinHabbits" value="sun">Sunbathe/ Use tanning bed
+            <input type="checkbox" name="skinHabbits" value="botox">Botox/Fillers in the last week
+            <input type="checkbox" name="skinHabbits" value="caffeine">Drink more than 4 caffeinated beverages a day
+            <input type="checkbox" name="skinHabbits" value="salicylicAcid">Use of Salicylic Acid
+            <input type="checkbox" name="skinHabbits" value="vitaminA">Vitamin A Derivatives
+            <input type="checkbox" name="skinHabbits" value="retinA">Use Retin-A
+            <input type="checkbox" name="skinHabbits" value="renova">Renova
+            <input type="checkbox" name="skinHabbits" value="adapalene">Adapalene
+            <input type="text" name="skinHabbits" id="skinHabbitsOther" placeholder="other"><br>
+
+            <li><label for="useIn72hours">Use of any of the following in the last 72 hours? Select any that apply</label> <br>
+            <input type="checkbox" name="useIn72hours" value="waxed">waxing
+            <input type="checkbox" name="useIn72hours" value="glycolicAcid">Glycolic Acid
+            <input type="checkbox" name="useIn72hours" value="lacticAcid">Lactic Acid <br>
+
+            <li><label for="usePassedMonth">Have you had any of the following in the last month?</label> <br>
+            <input type="checkbox" name="usePassedMonth" value="chemicalPeel">Chemical Peel
+            <input type="checkbox" name="usePassedMonth" value="microdermabrasion">Microdermabrasion
+            <input type="checkbox" name="usePassedMonth" value="resurfacingTreatment">Resurfacing Treatment
+
+            <li><label for="exercise">Do you exercise regularly?</label>
+            <select name="exercise" id="exercise">
+                <option value="" disabled selected hidden>select</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select> <br>
+
+            <li><label for="contactLenses">Do you wear contact lenses?</label>
+            <select name="contactLenses" id="contactLenses">
+                <option value="" disabled selected hidden></option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select> <br>
+
+            <li><label for="bodyMod">Select any that apply, do you have?</label>
+            <input type="checkbox" name="bodyMod" value="metalImplants">Metal Implants
+            <input type="checkbox" name="bodyMod" value="pacemaker">Pacemaker
+            <input type="checkbox" name="bodyMod" value="bodyPiercings">Body Piercings <br>
+
+            <li><label for="stressLevel">Rate your level of stress on a scale of 1-5(1=low stress, 5=highstress)</label>
+            <select name="stressLevel" id="stressLevel">
+                <option value="" disabled selected hidden>select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select> <br>
+
+            <li><label for="surgery">Have you had surgery within the last 6 months?</label>
+            <select name="surgery" id="surgery">
+                <option value="" disabled selected hidden>select</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+
+            <label for="yesSurgery"></label>
+            <input type="text" name="yesSurgery" id="yesSurgery"> <br>
+
+            <li><label for="careBrands">What brand(s) of skincare do you use at home?</label>
+            <input type="text" name="careBrands" id="careBrands"> <br>
+
+            <li><label for="spf">What SPF sunscreen do you use?</label>
+            <input type="text" name="spf" id="spf">
+
+            <li><label for="sunBurn">Do you burn easily in moderate light?</label>
+            <select name="sunBurn" id="sunBurn">
+                <option value="" disabled selected hidden>select</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select> <br>
+
+            <h3>Female Guests Only</h3>
+
+            <div style="border-bottom: 1px solid black;">
+            </div>
+
+            <li><label for="oralContraception">Are you taking any oral contraception?</label>
+            <select name="oralContraception" id="oralContraception">
+                <option value="" disabled selected hidden>select</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select> <br>
+
+            <li><label for="pregnant">Are you pregnant or trying to get pregnant?</label>
+            <select name="pregnant" id="pregnant">
+                <option value="" disabled selected hidden>select</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+
+            <li><label for="nursing">Are you currently nursing?</label>
+            <select name="nursing" id="nursing">
+                <option value="" disabled selected hidden>select</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+
+            <li><label for="period">Are you currently having or due for menstrual cycle?</label>
+                <select name="period" id="period">
+                    <option value="" disabled selected hidden>select</option>
+                    <option value="yes">yes</option>
+                    <option value="no">no</option>
+                </select> <br>
+
+            <li><label for="femaleCondtions">Select any that apply(in the last 6-12 months)</label> <br>
+            <input type="checkbox" name="femaleCondtions" value="skinCancer">Skin Cancer:
+            <input type="text" name="femaleCondtions" id="skinCancerLocation" placeholder="location">
+            <input type="checkbox" name="femaleCondtions" value="diabetes">Diabetes
+            <input type="checkbox" name="femaleCondtions" value="migraines">Migraines
+            <input type="checkbox" name="femaleCondtions" value="heartCondition">Heart Condtion
+            <input type="checkbox" name="femaleCondtions" value="accutane">On Accutane
+            
+            <div style="border-bottom: 1px solid black;">
+            </div> <br>
+            
+        </ul>
+        <div style="line-height: 1; font-size: smaller;">
+        <p>I, the undersigned guest, understand that skin therapy is not substitute for medical examination or diagnosis, and that I should see a physician for any ailment or medical conditions or any questions or concerns that I may have. I understand that my participation in the treatment carries inherent risks that cannot be eliminated regardless of the care taken to avoid injury. I assume all risks and accept full responsibility for receipt of the treatment. I am aware that draping will be used during my session. I understand that the treatment is not sexual in any manner and that any sexual suggestive remarks or advances made by me will result in immediate termination of the session. If the session is terminated for foregoing reason(s), I will still be liable for payment of the treatment. I understand that if at any time I have concerns about the session or experience any discomfort, I am to bring the issue to the therapist's attention. I may terminate the session at any time.</p> 
+
+        <p>I have read and fully understand this form in its entirety. If at any time there are changes to the information given, or in my condition, I will notify my therapist, and update this form before reciving additional services</p>
+
+        <p>In signing this consent form treatment and waiver liability, I understand and agree that the consent and waiver will apply to current treatment session and all future treatment sessions performed by Stacy Christensen Larkin and Stacy's Face and Skin Treatments</p>
+        </div>
+
+        <div id="minorForm">
+            <p>Consent To Treatment of a Minor under 18: By my signature below, I hereby consent to administer facial treatments and related services to my child or dependent as deemed necessary</p>
+        </div>
+        <button id="button">ok</button>
+        <!-- <input type="submit" value="submit"> -->
+</form>
+</body>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="html2pdf.bundle.min.js"></script> -->
+<script>
+    var ok = document.getElementById('button')
+    var form = document.getElementById('form')
+    var labels = document.getElementsByTagName('LABEL');
+    var input = document.getElementsByTagName('INPUT');
+    var name = document.getElementById('fname').value;
+    // window.jsPDF = window.jspdf.jsPDF;
+    // var doc = new jsPDF()
+    
+    // var opt = {
+    //     margin:       1,
+    //     filename:     name,
+    //     image:        { type: 'jpeg=', quality: 0.98 },
+    //     html2canvas:  { scale: 2 },
+    //     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    // };
+    // input.forEach(element => {
+    //         element.setAttribute('readonly', 'true')
+    //     });
+// New Promise-based usage:
+// html2pdf().set(opt).from(form).save();
+    ok.addEventListener('click', function(event){      
+        event.preventDefault()   
+        var name = form.fname.value + form.lname.value
+        var opt = {
+        margin:       1,
+        filename:     name,
+        image:        { type: 'jpeg=', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+         html2pdf().set(opt).from(form).save();
+        //  doc.text(labels[0].value,20,20)
+        //  doc.save('text.pdf')
+    console.log(name)
+    })
+ 
+
+
+
+
+</script>
+</html>
