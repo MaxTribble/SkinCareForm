@@ -216,12 +216,17 @@
         <p>In signing this consent form treatment and waiver liability, I understand and agree that the consent and waiver will apply to current treatment session and all future treatment sessions performed by Stacy Christensen Larkin and Stacy's Face and Skin Treatments</p>
         </div>
 
+        <label for="signature"></label>
+        <input type="text" name="signature" style="font-family: cursive;">
+
         <div id="minorForm">
-            <p>Consent To Treatment of a Minor under 18: By my signature below, I hereby consent to administer facial treatments and related services to my child or dependent as deemed necessary</p>
+            <p>Consent To Treatment of a Minor under 18: By my signature below, I hereby consent to administer facial treatments and related services to my child or dependent as deemed necessary</p> <br>
+            <label for="signatureChild"></label>
+        <input type="text" name="signatureChild" style="font-family: cursive;">
         </div>
-        <button id="button">ok</button>
-        <!-- <input type="submit" value="submit"> -->
+
 </form>
+<div id="button">Done</div>
 </body>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -232,21 +237,7 @@
     var labels = document.getElementsByTagName('LABEL');
     var input = document.getElementsByTagName('INPUT');
     var name = document.getElementById('fname').value;
-    // window.jsPDF = window.jspdf.jsPDF;
-    // var doc = new jsPDF()
-    
-    // var opt = {
-    //     margin:       1,
-    //     filename:     name,
-    //     image:        { type: 'jpeg=', quality: 0.98 },
-    //     html2canvas:  { scale: 2 },
-    //     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-    // };
-    // input.forEach(element => {
-    //         element.setAttribute('readonly', 'true')
-    //     });
-// New Promise-based usage:
-// html2pdf().set(opt).from(form).save();
+
     ok.addEventListener('click', function(event){      
         event.preventDefault()   
         var name = form.fname.value + form.lname.value
@@ -259,9 +250,6 @@
     };
 
          html2pdf().set(opt).from(form).save();
-        //  doc.text(labels[0].value,20,20)
-        //  doc.save('text.pdf')
-    console.log(name)
     })
  
 

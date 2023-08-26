@@ -10,7 +10,15 @@ H2{
     text-align:center;
 }
 
-H3{
+#button{
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid black;
+    padding: 4px;
+    margin: auto;
+    max-width: fit-content;
+    border-radius: 10px;
+    font-size: 40px;
 }
 
 .center{
@@ -18,11 +26,9 @@ H3{
 }
 
 #minorForm{
-    border: 1px solid blue;
+    margin:20px 0px;
+    border: 3px solid blue;
     line-height: 1;
     font-size: smaller;
     padding: 10px;
-}
-
-input{
 }
