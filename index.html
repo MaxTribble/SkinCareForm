@@ -14,6 +14,7 @@ margin-left: 90px;
 font-size: 25px;
 line-height: 2;">
     <form id="form">
+        <!-- <P style="page-break-before: always"> -->
         <H2 style="text-align: center; margin: 20px 0px;">Skin Treatment Form</H2>
         <label for="fname">First name:</label>
         <input type="text" id="fname" name="fname">
@@ -69,6 +70,8 @@ line-height: 2;">
                 <option value="no">No</option>
             </select><br>
 
+            <p style="page-break-before: always"></p>
+
             <li><label for="skinConcerns">Please select if you have any of these skin concerns</label> <br>
             <input type="checkbox" name="skinConcerns" value="prematureAging"> Premature Aging
             <input type="checkbox" name="skinConcerns" value="unevenSkinTone"> Uneven Skin Tone
@@ -105,6 +108,8 @@ line-height: 2;">
             <input type="checkbox" name="skinHabbits" value="renova">Renova
             <input type="checkbox" name="skinHabbits" value="adapalene">Adapalene
             <input type="text" name="skinHabbits" id="skinHabbitsOther" placeholder="other"><br>
+
+            <p style="page-break-before: always"></p>
 
             <li><label for="useIn72hours">Use of any of the following in the last 72 hours? Select any that apply</label> <br>
             <input type="checkbox" name="useIn72hours" value="waxed">waxing
@@ -214,6 +219,8 @@ line-height: 2;">
             
         </ul>
         <div style="line-height: 1; font-size: smaller;">
+
+            <p style="page-break-before: always"></p>
         <p>I, the undersigned guest, understand that skin therapy is not substitute for medical examination or diagnosis, and that I should see a physician for any ailment or medical conditions or any questions or concerns that I may have. I understand that my participation in the treatment carries inherent risks that cannot be eliminated regardless of the care taken to avoid injury. I assume all risks and accept full responsibility for receipt of the treatment. I am aware that draping will be used during my session. I understand that the treatment is not sexual in any manner and that any sexual suggestive remarks or advances made by me will result in immediate termination of the session. If the session is terminated for foregoing reason(s), I will still be liable for payment of the treatment. I understand that if at any time I have concerns about the session or experience any discomfort, I am to bring the issue to the therapist's attention. I may terminate the session at any time.</p> 
 
         <p>I have read and fully understand this form in its entirety. If at any time there are changes to the information given, or in my condition, I will notify my therapist, and update this form before reciving additional services</p>
@@ -243,6 +250,14 @@ margin: auto;
 max-width: fit-content;
 border-radius: 10px;
 font-size: 40px;">Done</div>
+
+<div class="hidden" id="loading"style="z-index: 7; position: fixed; font-size: 50px; background-color: white; top: 50%; left: 30%; border: 3px solid black; padding: 40px; border-radius: 15px;">Processing...</div>
+<div class="hidden" id="fileSave"style="z-index: 7; position: fixed; font-size: 50px; background-color: white; top: 50%; left: 30%; border: 3px solid black; padding: 40px; border-radius: 15px">File Saved!</div>
+<style>
+    .hidden{
+        display: none;
+    }
+</style>
 </body>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -253,10 +268,15 @@ font-size: 40px;">Done</div>
     var labels = document.getElementsByTagName('LABEL');
     var input = document.getElementsByTagName('INPUT');
     var name = document.getElementById('fname').value;
+    var load = document.getElementById('loading')
+    var done = document.getElementById('fileSave')
+    var style = document.createElement('style');
 
-    ok.addEventListener('click', function(event){      
+
+
+    ok.addEventListener('click', async function(event){      
         event.preventDefault()   
-        var name = form.fname.value + form.lname.value
+        var name = form.fname.value + form.lname.value + "Skin Treatment Form"
         var opt = {
         margin:       1,
         filename:     name,
@@ -264,8 +284,14 @@ font-size: 40px;">Done</div>
         html2canvas:  { scale: 2 },
         jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
+        await load.classList.remove('hidden');
+        await html2pdf().set(opt).from(form).save();
+        await load.classList.add('hidden');
+        await done.classList.remove('hidden')
+    })
 
-         html2pdf().set(opt).from(form).save();
+    done.addEventListener("click", function(){
+        location.reload()
     })
  
 
