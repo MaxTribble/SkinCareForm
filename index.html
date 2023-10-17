@@ -43,7 +43,12 @@ line-height: 2;">
         <input type="email" id="email" name="email"><br>
 
         <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday"><br>
+
+        <label for="birthdayM">Month:</label>
+        <input type="number" id="birthdayM" name="birthdayM">
+
+        <label for="birthdayD">Day:</label>
+        <input type="number" id="birthdayD" name="birthdayD"> <br>
 
         <label for="business">How did you hear about me?</label>
         <input type="text" name="business"><br>
@@ -237,8 +242,7 @@ line-height: 2;">
         <label for="signature"></label>
         <input type="text" name="signature" style="font-family: cursive;">
 
-        <label for="todaysDate2">Date:</label>
-        <input type="date" id="todaysDate2" name="todaysDate2"><br>
+        <label for="todaysDate2"><u>Date:<span id="currentDate1"></span></u></label>
 
         <div id="minorForm" style="    margin:20px 0px;
         border: 3px solid blue;
@@ -248,11 +252,8 @@ line-height: 2;">
             <p>Consent To Treatment of a Minor under 18: By my signature below, I hereby consent to administer facial treatments and related services to my child or dependent as deemed necessary</p> <br>
             <label for="signatureChild"></label>
             <input type="text" name="signatureChild" style="font-family: cursive;">
-            <!-- <canvas height="100" width="300" class="signature-pad"></canvas>
-            <p><a href="#" class="clear-button">Clear</a></p> -->
 
-        <label for="todaysDate1">Date:</label>
-        <input type="date" id="todaysDate1" name="todaysDate1"><br>
+        <label for="todaysDate1"><u>Date:<span id="currentDate"></span></u> </label>
         </div>
 
     </form>
@@ -322,51 +323,12 @@ line-height: 2;">
     var load = document.getElementById('loading')
     var done = document.getElementById('fileSave')
     var style = document.createElement('style');
-    const canvas = document.querySelector('canvas');
-    const form1 = document.querySelector('.signature-pad-form');
-    const clearButton = document.querySelector('.clear-button');
-    const ctx = canvas.getContext('2d');
-    let writingMode = false;
-
-    const getCursorPosition = (event) => {
-    positionX = event.clientX - event.target.getBoundingClientRect().x;
-    positionY = event.clientY - event.target.getBoundingClientRect().y;
-    return [positionX, positionY];
-  }
-
-const handlePointerDown = (event) => {
-    writingMode = true;
-    ctx.beginPath();
-    const [positionX, positionY] = getCursorPosition(event);
-    ctx.moveTo(positionX, positionY);
-  }
-  const handlePointerUp = () => {
-    writingMode = false;
-  }
-
-  const handlePointerMove = (event) => {
-    if (!writingMode) return
-    const [positionX, positionY] = getCursorPosition(event);
-    ctx.lineTo(positionX, positionY);
-    ctx.stroke();
-  }
-
-ctx.lineWidth = 2;
-ctx.lineJoin = ctx.lineCap = 'round';
-
-  const clearPad = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-  clearButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    clearPad();
-  })
-
-canvas.addEventListener('pointerdown', handlePointerDown, {passive: true});
-canvas.addEventListener('pointerup', handlePointerUp, {passive: true});
-canvas.addEventListener('pointermove', handlePointerMove, {passive: true});
-
-
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("currentDate").innerHTML = m + "/" + d + "/" + y;
+    document.getElementById("currentDate1").innerHTML = m + "/" + d + "/" + y;
 
     ok.addEventListener('click', async function(event){      
         event.preventDefault()   
