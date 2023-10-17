@@ -237,6 +237,9 @@ line-height: 2;">
         <label for="signature"></label>
         <input type="text" name="signature" style="font-family: cursive;">
 
+        <label for="todaysDate2">Date:</label>
+        <input type="date" id="todaysDate2" name="todaysDate2"><br>
+
         <div id="minorForm" style="    margin:20px 0px;
         border: 3px solid blue;
         line-height: 1;
@@ -244,31 +247,73 @@ line-height: 2;">
         padding: 10px;">
             <p>Consent To Treatment of a Minor under 18: By my signature below, I hereby consent to administer facial treatments and related services to my child or dependent as deemed necessary</p> <br>
             <label for="signatureChild"></label>
-        <input type="text" name="signatureChild" style="font-family: cursive;">
+            <input type="text" name="signatureChild" style="font-family: cursive;">
+            <!-- <canvas height="100" width="300" class="signature-pad"></canvas>
+            <p><a href="#" class="clear-button">Clear</a></p> -->
+
+        <label for="todaysDate1">Date:</label>
+        <input type="date" id="todaysDate1" name="todaysDate1"><br>
         </div>
 
-</form>
-<div id="button" style="text-align: center;
-cursor: pointer;
-border: 2px solid black;
-padding: 4px;
-margin: auto;
-max-width: fit-content;
-border-radius: 10px;
-font-size: 40px;">Done</div>
+    </form>
+    <div id="button" style="text-align: center;
+    cursor: pointer;
+    border: 2px solid black;
+    padding: 4px;
+    margin: auto;
+    max-width: fit-content;
+    border-radius: 10px;
+    font-size: 40px;">Done</div>
 
-<div class="hidden" id="loading"style="z-index: 7; position: fixed; font-size: 50px; background-color: lightgray; top: 50%; left: 30%; border: 3px solid black; padding: 40px; border-radius: 15px;">Processing...</div>
-<div class="hidden" id="fileSave"style="z-index: 7; position: fixed; font-size: 50px; background-color: lightgray; top: 50%; left: 30%; border: 3px solid black; padding: 40px; border-radius: 15px">File Saved!</div>
-<style>
+    <div class="hidden" id="loading"style="z-index: 7; position: fixed; font-size: 50px; background-color: lightgray; top: 50%; left: 30%; border: 3px solid black; padding: 40px; border-radius: 15px;">Processing...</div>
+    <div class="hidden" id="fileSave"style="z-index: 7; position: fixed; font-size: 50px; background-color: lightgray; top: 50%; left: 30%; border: 3px solid black; padding: 40px; border-radius: 15px">File Saved!</div>
+    <style>
     .hidden{
         display: none;
     }
+    :root {
+    --primary-color: #000;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    padding: 1rem;
+  }
+  .signature-pad-form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .signature-pad {
+    cursor: url(pen.png) 1 26, pointer;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+  }
+  .clear-button {
+    color: var(--primary-color);
+  }
+  .submit-button {
+    width: 100%;
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 2rem;
+  }
+  @media (pointer: coarse) {
+    body {
+      overflow: hidden; /* Needed to prevent the vertical scroll on touch devices */
+    }
+  }
+    
 </style>
 </body>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- <script src="html2pdf.bundle.min.js"></script> -->
 <script>
+
+
     var ok = document.getElementById('button')
     var form = document.getElementById('form')
     var labels = document.getElementsByTagName('LABEL');
@@ -277,6 +322,49 @@ font-size: 40px;">Done</div>
     var load = document.getElementById('loading')
     var done = document.getElementById('fileSave')
     var style = document.createElement('style');
+    const canvas = document.querySelector('canvas');
+    const form1 = document.querySelector('.signature-pad-form');
+    const clearButton = document.querySelector('.clear-button');
+    const ctx = canvas.getContext('2d');
+    let writingMode = false;
+
+    const getCursorPosition = (event) => {
+    positionX = event.clientX - event.target.getBoundingClientRect().x;
+    positionY = event.clientY - event.target.getBoundingClientRect().y;
+    return [positionX, positionY];
+  }
+
+const handlePointerDown = (event) => {
+    writingMode = true;
+    ctx.beginPath();
+    const [positionX, positionY] = getCursorPosition(event);
+    ctx.moveTo(positionX, positionY);
+  }
+  const handlePointerUp = () => {
+    writingMode = false;
+  }
+
+  const handlePointerMove = (event) => {
+    if (!writingMode) return
+    const [positionX, positionY] = getCursorPosition(event);
+    ctx.lineTo(positionX, positionY);
+    ctx.stroke();
+  }
+
+ctx.lineWidth = 2;
+ctx.lineJoin = ctx.lineCap = 'round';
+
+  const clearPad = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  clearButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    clearPad();
+  })
+
+canvas.addEventListener('pointerdown', handlePointerDown, {passive: true});
+canvas.addEventListener('pointerup', handlePointerUp, {passive: true});
+canvas.addEventListener('pointermove', handlePointerMove, {passive: true});
 
 
 
