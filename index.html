@@ -184,6 +184,14 @@ line-height: 2;">
 
             <div style="page-break-before: always"></div>
 
+            <li><label for="femaleCondtions">Select any that apply(in the last 6-12 months)</label> <br>
+                <input type="checkbox" name="femaleCondtions" value="skinCancer">Skin Cancer:
+                <input type="text" name="femaleCondtions" id="skinCancerLocation" placeholder="location"> <br>
+                <input type="checkbox" name="femaleCondtions" value="diabetes">Diabetes
+                <input type="checkbox" name="femaleCondtions" value="migraines">Migraines
+                <input type="checkbox" name="femaleCondtions" value="heartCondition">Heart Condtion <br>
+                <input type="checkbox" name="femaleCondtions" value="accutane">On Accutane
+
             <h3>Female Guests Only</h3>
 
             <div style="border-bottom: 1px solid black;">
@@ -216,14 +224,6 @@ line-height: 2;">
                     <option value="yes">yes</option>
                     <option value="no">no</option>
                 </select> <br>
-
-            <li><label for="femaleCondtions">Select any that apply(in the last 6-12 months)</label> <br>
-            <input type="checkbox" name="femaleCondtions" value="skinCancer">Skin Cancer:
-            <input type="text" name="femaleCondtions" id="skinCancerLocation" placeholder="location"> <br>
-            <input type="checkbox" name="femaleCondtions" value="diabetes">Diabetes
-            <input type="checkbox" name="femaleCondtions" value="migraines">Migraines
-            <input type="checkbox" name="femaleCondtions" value="heartCondition">Heart Condtion <br>
-            <input type="checkbox" name="femaleCondtions" value="accutane">On Accutane
             
             <div style="border-bottom: 1px solid black;">
             </div> <br>
@@ -243,9 +243,11 @@ line-height: 2;">
         </div>
 
         <label for="signature"></label>
-        <input type="text" name="signature" style="font-family: cursive;">
+        <input type="text" name="signature" style="font-family: cursive;" placeholder="E-Signature Here">
 
         <label for="todaysDate2"><u>Date:<span id="currentDate1"></span></u></label>
+
+        <div style="page-break-before: always"></div>
 
         <div id="minorForm" style="    margin:20px 0px;
         border: 3px solid blue;
@@ -254,7 +256,7 @@ line-height: 2;">
         padding: 10px;">
             <p>Consent To Treatment of a Minor under 18: By my signature below, I hereby consent to administer facial treatments and related services to my child or dependent as deemed necessary</p> <br>
             <label for="signatureChild"></label>
-            <input type="text" name="signatureChild" style="font-family: cursive;">
+            <input type="text" name="signatureChild" style="font-family: cursive;" placeholder="E-Signature Here">
 
         <label for="todaysDate1"><u>Date:<span id="currentDate"></span></u> </label>
         </div>
